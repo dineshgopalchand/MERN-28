@@ -8,17 +8,20 @@
         <link rel="stylesheet" href="./main.css">
         <style>
             .container{
-                background:#fcc
+                background:#fcc;
+                width: 900px;
+                margin: auto;
+
             }
         </style>
     </head>
     <body>
-        <div class="container" >
+        <div class="container" id="main" title=" main body" data-ref-id="1" >
             <h1>Home page</h1>
             <!-- #page>div.logo+ul#navigation>li*5>a[href="#$"]{Item $} -->
             <div id="page">
                 <div class="logo"></div>
-                <ul id="navigation">
+                <ul id="navigation" title="navigation list">
                     <li><a href="#1">Item 1</a></li>
                     <li><a href="#2">Item 2</a></li>
                     <li><a href="#3">Item 3</a></li>
@@ -26,6 +29,16 @@
                     <li><a href="#5">Item 5</a></li>
                 </ul>
             </div>
+            <!-- h$*6>{header $} -->
+            <h1>header 1</h1>
+            <h2>header 2</h2>
+            <h3>header 3</h3>
+            <h4>header 4</h4>
+            <h5>header 5</h5>
+            <h6>header 6</h6>
+            <div>Details</div>
+            <abbr>this is abbr tag</abbr>
+            <code>code tag</code>
         </div>
     </body>
 </html>
