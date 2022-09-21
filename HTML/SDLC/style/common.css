@@ -4,9 +4,17 @@ body {
 .top-contact {
     background-color: blue;
     color: white;
+    padding: 5px 0px;
 }
+
+.top-contact a {
+    color: white;
+    font-weight: bold;
+}
+
+
+
 .logo-container .logo {
-    /* width: 200px; */
     display: inline-block;
 }
 .logo-container .logo img{
