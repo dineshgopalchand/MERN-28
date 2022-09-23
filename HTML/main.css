@@ -1,4 +1,10 @@
-.container{
-    background:#fcc;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100;1,300&display=swap'); */
+@font-face{
+    font-family: 'sdlctrianing';
+    /* src:url('./fonts/roboto/Roboto-Regular.ttf') */
+    src:url('./fonts/RubikDirt/RubikDirt-Regular.ttf')
+}
+*{
+    /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
+    font-family: 'sdlctrianing';
 }
