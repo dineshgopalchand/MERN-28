@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        width: 90%;
+        margin: auto;
+      }
+      a[href$=".pdf"] {
+        color: green;
+      }
+      a[href$=".pdf"]::after {
+        content: "pdf";
+        color: #000;
+        border: 1px dashed #858585;
+        margin-left: 10px;
+        padding: 2px 15px;
+      }
+      a[href$=".ppt"]::before {
+        content: "ppt";
+        color: #000;
+        border: 1px solid #858585;
+        margin-left: 10px;
+        padding: 2px 15px;
+      }
+      .circle {
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+        background-color: #000;
+      }
+      .tri {
+        width: 0px;
+        height: 0px;
+        /* border: 40px solid red; */
+        /* border-top: 40px solid transparent; */
+        border-bottom: 60px solid black;
+        border-right: 80px solid transparent;
+        border-left: 40px solid transparent;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        <a href="https://www.tutorialspoint.com/css/css_tutorial.pdf"
+          >css_tutorial</a
+        >
+      </div>
+      <div><a href="./CSS.ppt">css powerpoint</a></div>
+      <div class="circle"></div>
+      <div class="tri"></div>
+    </div>
+  </body>
+</html>
