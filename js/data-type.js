@@ -21,5 +21,4 @@ console.log(studentName);
 
 // let -> redecleration and reassignment are not  allowed
 const COURSE_NAME='MERN stack';
- COURSE_NAME='MERN stack';
 console.log(COURSE_NAME);
