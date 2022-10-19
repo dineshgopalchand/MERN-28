@@ -1,0 +1,20 @@
+> Environment and project setup - Done
+> Introducing JSX - 
+> Rendering Elements - 
+> Components and Props - 
+> State(useState) and Lifecycle - 
+> Handling Events - 
+> Conditional Rendering - 
+> Lists and Keys - 
+> Forms - 
+> Lifting State Up - 
+> Styling - 
+    >>Styled Component - 
+    >>React css module - 
+>Portals  - 
+>Refs(useRef) - 
+>effect -..
+>Reducer
+>context
+>Router
+>Redux

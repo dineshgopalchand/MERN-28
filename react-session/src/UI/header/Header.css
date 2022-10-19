@@ -1,0 +1,9 @@
+header{
+    text-align: center;
+    background-color: rgb(3, 3, 143);
+    color: #bbb;
+}
+header h2{
+    margin: 0px;
+    padding: 5px;
+}
