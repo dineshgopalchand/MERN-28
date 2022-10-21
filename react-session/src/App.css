@@ -1,0 +1,18 @@
+.main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.main-body {
+  flex: 70%;
+}
+.container {
+  width: 90%;
+  margin: auto;
+}
+.bg-light {
+  background-color: #bbb;
+}
+.p-1 {
+  padding: 1rem;
+}
