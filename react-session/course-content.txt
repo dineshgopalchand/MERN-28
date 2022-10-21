@@ -1,6 +1,6 @@
 > Environment and project setup - Done
-> Introducing JSX - 
-> Rendering Elements - 
+> Introducing JSX -  Done
+> Rendering Elements - Done
 > Components and Props - 
 > State(useState) and Lifecycle - 
 > Handling Events - 
