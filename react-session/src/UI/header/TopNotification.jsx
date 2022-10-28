@@ -1,8 +1,11 @@
 import React from "react";
+import Tick from "../tick/Tick";
 
 const TopNotification = () => {
-  const currentDate = new Date();
-  return <div>Current Date: {currentDate.toString()}</div>;
+ 
+  return <div>
+    <Tick/>
+  </div>;
 };
 
 export default TopNotification;
