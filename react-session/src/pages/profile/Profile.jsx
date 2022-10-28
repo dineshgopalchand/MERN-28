@@ -6,7 +6,7 @@ const Profile = (props) => {
   return (
     <div>
       <div className="user-img">
-        <img src={ props.user.avatar_url} alt="user-pic" />
+        <img src={ userDetails.avatar_url} alt="user-pic" />
       </div>
       <div className="user-name">
         {userDetails.login}

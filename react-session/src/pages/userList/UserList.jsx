@@ -1,5 +1,6 @@
 import React from "react";
 import Profile from "../profile/Profile";
+import './UserList.css';
 
 const UserList = () => {
     const userDetailList=[
@@ -14,13 +15,23 @@ const UserList = () => {
         {
             "login": "rohithcvijayan",
             "avatar_url": "https://avatars.githubusercontent.com/u/49511065?v=4"
-        }
+        },
+        {
+            "login": "rohithcvijayan",
+            "avatar_url": "https://avatars.githubusercontent.com/u/49511065?v=4"
+        },
+        {
+          "login": "KirtiBihari1",
+          "avatar_url": "https://avatars.githubusercontent.com/u/39719334?v=4"
+      }
     ];
   return (
-    <div>
-      <Profile user={userDetailList[0]}/>
-      <Profile user={userDetailList[1]}/>
-      <Profile user={userDetailList[2]}/>
+    <div className="flex">
+      {
+        userDetailList.map((userDetails)=>{
+          return <Profile user={userDetails}/>
+        })
+      }
     </div>
   );
 };
