@@ -2,7 +2,7 @@
 > Introducing JSX -  Done
 > Rendering Elements - Done
 > Components and Props - 
-> State(useState) and Lifecycle - 
+> State(useState) and Lifecycle -  Done
 > Handling Events - 
 > Conditional Rendering - 
 > Lists and Keys - 
