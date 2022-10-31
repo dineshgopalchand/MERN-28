@@ -38,6 +38,11 @@ function TodoList() {
   const addNewHandler = () => {
     setShowNewForm(!showNewForm);
   };
+  const addNewTodoHandler = (newTodo) => {
+    setTodoList((prevTodoList) => {
+      return [...prevTodoList, newTodo];
+    });
+  };
   return (
     <>
       <h2>
@@ -47,19 +52,12 @@ function TodoList() {
         </button>
       </h2>
       {/* {showNewForm ? <NewTodo /> : ""} */}
-      {showNewForm && <NewTodo />}
+      {showNewForm && <NewTodo onNewToDo={addNewTodoHandler}/>}
 
       <ul className="todo-list">
         {todoList.map((todo) => {
           return (
             <Fragment key={todo.id}>
-              {/* <li
-                className={todo.completed ? "completed" : "not-completed"}
-                onClick={todoItemClick} 
-              >
-                this will pass default event value 
-                {todo.title}
-              </li> */}
               <li
                 className={todo.completed ? "completed" : "not-completed"}
                 onClick={() => todoItemChangeStatusHandler(todo)}

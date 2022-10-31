@@ -5,9 +5,13 @@
     border-radius: 5px;
     background-color: white;
 }
-.todo-from .form-group{
+.todo-from .form-group {
     padding: 3px 0px;
 }
-.todo-from .form-control{
-   width: 80%;
+.todo-from .form-control {
+    width: 80%;
+}
+.error {
+    border: 2px solid red;
+    color:red;
 }

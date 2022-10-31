@@ -1,15 +1,51 @@
 import React from "react";
+import { useState } from "react";
 import "./NewTodo.css";
 
-function NewTodo() {
+const NewTodo = (props) => {
+  console.log(props);
+  const newTodoHandler = props.onNewToDo;
+  const [todoVal, setTodoVal] = useState("");
+  const [todoError, setTodoError] = useState(false);
+
+  const todoChangeHandle = (event) => {
+    const inputVal = event.target.value.trim();
+    if (inputVal.length <= 3) {
+      setTodoError(true);
+    } else {
+      setTodoError(false);
+    }
+    setTodoVal(inputVal);
+  };
+
+  const todoFormSubmitHandler = (event) => {
+    event.preventDefault();
+    if (!todoError) {
+      const newTodo = {
+        id: Date.now(),
+        title: todoVal,
+        completed: false,
+      };
+      newTodoHandler(newTodo);
+      setTodoVal('');// after submission clear the input field
+    }
+  };
+
   return (
-    <form className="todo-from">
+    <form className="todo-from" onSubmit={todoFormSubmitHandler}>
       <div className="form-group">
-        <input type="text" className="form-control" />
+        <input
+          type="text"
+          className={`form-control ${todoError ? "error" : ""}`}
+          name="todo"
+          value={todoVal}
+          onChange={todoChangeHandle}
+          placeholder="Add new todo item"
+        />
       </div>
-      <button type="submit">Create Task</button>
+      <button type="submit">Add new todo</button>
     </form>
   );
-}
+};
 
 export default NewTodo;
