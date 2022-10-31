@@ -35,7 +35,7 @@ function TodoList() {
     updateTodoList.splice(todoIndex, 1, updatedTodo);
     setTodoList(updateTodoList);
   };
-  const addNewHandler = () => {
+  const formHideShowHandler = () => {
     setShowNewForm(!showNewForm);
   };
   const addNewTodoHandler = (newTodo) => {
@@ -47,12 +47,17 @@ function TodoList() {
     <>
       <h2>
         To do list{" "}
-        <button onClick={addNewHandler}>
+        <button onClick={formHideShowHandler}>
           {showNewForm ? "Close Form" : "Add New"}
         </button>
       </h2>
       {/* {showNewForm ? <NewTodo /> : ""} */}
-      {showNewForm && <NewTodo onNewToDo={addNewTodoHandler}/>}
+      {showNewForm && (
+        <NewTodo
+          onNewToDo={addNewTodoHandler}
+          onHideForm={formHideShowHandler}
+        />
+      )}
 
       <ul className="todo-list">
         {todoList.map((todo) => {

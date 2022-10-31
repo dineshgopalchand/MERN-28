@@ -5,12 +5,13 @@ import "./NewTodo.css";
 const NewTodo = (props) => {
   console.log(props);
   const newTodoHandler = props.onNewToDo;
+  const hideForm=props.onHideForm;
   const [todoVal, setTodoVal] = useState("");
   const [todoError, setTodoError] = useState(false);
 
   const todoChangeHandle = (event) => {
-    const inputVal = event.target.value.trim();
-    if (inputVal.length <= 3) {
+    const inputVal = event.target.value;
+    if (inputVal.trim().length <= 3) {
       setTodoError(true);
     } else {
       setTodoError(false);
@@ -28,6 +29,7 @@ const NewTodo = (props) => {
       };
       newTodoHandler(newTodo);
       setTodoVal('');// after submission clear the input field
+      hideForm();// it will hide todo form after submission
     }
   };
 
