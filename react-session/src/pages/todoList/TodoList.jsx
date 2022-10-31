@@ -67,6 +67,11 @@ function TodoList() {
                 className={todo.completed ? "completed" : "not-completed"}
                 onClick={() => todoItemChangeStatusHandler(todo)}
               >
+                <i
+                  className={`fa-solid fa-rocket fa-icon ${
+                    todo.completed ? "" : "not-completed"
+                  }`}
+                ></i>
                 {todo.title}
               </li>
             </Fragment>

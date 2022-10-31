@@ -16,3 +16,10 @@
 .not-completed {
     font-size: 1.1em;
 }
+
+.fa-icon {
+    margin-right: 5px;
+}
+.fa-icon.not-completed {
+    color: red;
+}

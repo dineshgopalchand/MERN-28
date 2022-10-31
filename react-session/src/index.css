@@ -1,3 +1,8 @@
+@import url('../node_modules/@fortawesome/fontawesome-free/css/fontawesome.min.css');
+@import url('../node_modules/@fortawesome/fontawesome-free/css/all.min.css');
+@import url('../node_modules/@fortawesome/fontawesome-free/css/brands.min.css');
+@import url('../node_modules/@fortawesome/fontawesome-free/css/regular.min.css');
+@import url('../node_modules/@fortawesome/fontawesome-free/css/solid.min.css');
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
