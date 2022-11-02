@@ -3,9 +3,9 @@
 > Rendering Elements - Done
 > Components and Props - 
 > State(useState) and Lifecycle -  Done
-> Handling Events - 
-> Conditional Rendering - 
-> Lists and Keys - 
+> Handling Events - Done
+> Conditional Rendering - Done
+> Lists and Keys - Done
 > Forms - 
 > Lifting State Up - 
 > Styling - 

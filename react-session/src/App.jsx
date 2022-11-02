@@ -4,7 +4,6 @@ import Login from "./pages/login/Login";
 import TopNotification from "./UI/header/TopNotification";
 import "./App.css";
 import UserList from "./pages/userList/UserList";
-import TickClass from "./UI/tick/TickClass";
 import TodoList from "./pages/todoList/TodoList";
 // js comment
 /* multi line
@@ -19,10 +18,9 @@ function App() {
           <Header />
         </div>
         <div className="main-body container bg-light p-1">
-          {/* <Login /> */}
+          <Login />
           {/* <UserList/> */}
-          {/* <TickClass /> */}
-          <TodoList/>
+          {/* <TodoList/> */}
         </div>
       </div>
     </>
