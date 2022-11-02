@@ -11,12 +11,4 @@ form {
     box-shadow: 2px 2px 2px #03038f;
     background-color: aliceblue;
 }
-.form-group {
-    margin: 10px 0px;
-}
 
-.form-group.error-field input {
-    color: red;
-    border: 1px solid red;
-    box-shadow: 1px 2px 3px red;
-}

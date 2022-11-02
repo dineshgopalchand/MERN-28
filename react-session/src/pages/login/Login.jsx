@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Input from "../../UI/input/Input";
 import "./Login.css";
 const Login = () => {
   const [userName, setUserName] = useState("");
@@ -15,39 +16,51 @@ const Login = () => {
     setUserNameErr(value.trim().length < 5);
     setUserName(value);
   };
-  const passwordNameHandler = (event) => {
+  const passwordHandler = (event) => {
     const value = event.target.value;
     setPasswordErr(value.trim().length < 7);
     setPassword(value);
   };
-  const loginFormHandler=event=>{
+  const loginFormHandler = (event) => {
     event.preventDefault();
-    console.log('form value',{userName},{password});
-  }
+    console.log("form value", { userName }, { password });
+  };
   return (
     <div className="form-box">
       <form onSubmit={loginFormHandler}>
         <h2>Login Form</h2>
-        <div className={`form-group ${userNameErr ? "error-field" : ""}`}>
-          <input
-            type="text"
-            name="username"
-            value={userName}
-            onChange={userNameHandler}
-            autoComplete="false"
-          />
-        </div>
-        <div className={`form-group ${passwordErr ? "error-field" : ""}`}>
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={passwordNameHandler}
-            autoComplete="false"
-          />
-        </div>
+
+        <Input
+          onChange={userNameHandler}
+          className={`${userNameErr ? "error-field" : ""}`}
+          field={{
+            type: "text",
+            name: "username",
+            value: userName,
+            autoComplete: "false",
+          }}
+        />
+        <Input
+          onChange={passwordHandler}
+          className={`${passwordErr ? "error-field" : ""}`}
+          field={{
+            type: "password",
+            name: "password",
+            value: password,
+            autoComplete: "false",
+          }}
+        />
         <div className="form-group">
-          <button disabled={userNameErr || passwordErr || userName.length===0 || password.length===0 }>Sign In</button>
+          <button
+            disabled={
+              userNameErr ||
+              passwordErr ||
+              userName.length === 0 ||
+              password.length === 0
+            }
+          >
+            Sign In
+          </button>
         </div>
       </form>
     </div>
