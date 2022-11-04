@@ -29,6 +29,7 @@ function TodoList() {
   const [showNewForm, setShowNewForm] = useState(false);
 
   const todoItemChangeStatusHandler = (todo) => {
+    console.log("todoItemChangeStatusHandler");
     const updatedTodo = { ...todo, completed: !todo.completed };
     const todoIndex = todoList.findIndex((todoItem) => todoItem.id === todo.id);
     const updateTodoList = [...todoList];
@@ -43,6 +44,38 @@ function TodoList() {
       return [...prevTodoList, newTodo];
     });
   };
+  const DeleteHandler = (event, id) => {
+    event.stopPropagation();
+    console.log("delete handler", id);
+
+    setTodoList((prevTodoList) => {
+      // const updateList=[...prevTodoList];
+      // const removeItemIndex=updateList.findIndex(item=>item.id===id);
+      // updateList.splice(removeItemIndex,1);
+      // return updateList;
+      return prevTodoList.filter((todo) => todo.id !== id);
+    });
+  };
+  const todoListFormatted = todoList.map((todo) => {
+    return (
+      <li
+        className={todo.completed ? "completed" : "not-completed"}
+        onClick={() => todoItemChangeStatusHandler(todo)}
+        key={todo.id}
+      >
+        {" "}
+        <button onClick={(event) => DeleteHandler(event, todo.id)}>
+          Delete
+        </button>
+        <i
+          className={`fa-solid fa-rocket fa-icon ${
+            todo.completed ? "" : "not-completed"
+          }`}
+        ></i>
+        {todo.title}
+      </li>
+    );
+  });
   return (
     <>
       <h2>
@@ -59,25 +92,7 @@ function TodoList() {
         />
       )}
 
-      <ul className="todo-list">
-        {todoList.map((todo) => {
-          return (
-            <Fragment key={todo.id}>
-              <li
-                className={todo.completed ? "completed" : "not-completed"}
-                onClick={() => todoItemChangeStatusHandler(todo)}
-              >
-                <i
-                  className={`fa-solid fa-rocket fa-icon ${
-                    todo.completed ? "" : "not-completed"
-                  }`}
-                ></i>
-                {todo.title}
-              </li>
-            </Fragment>
-          );
-        })}
-      </ul>
+      <ul className="todo-list">{todoListFormatted}</ul>
     </>
   );
 }
