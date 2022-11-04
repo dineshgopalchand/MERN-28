@@ -1,13 +1,13 @@
 > Environment and project setup - Done
 > Introducing JSX -  Done
 > Rendering Elements - Done
-> Components and Props - 
+> Components and Props - Done
 > State(useState) and Lifecycle -  Done
 > Handling Events - Done
 > Conditional Rendering - Done
 > Lists and Keys - Done
-> Forms - 
-> Lifting State Up - 
+> Forms - Done
+> Lifting State Up - Done
 > Styling - 
     >>Styled Component - 
     >>React css module - 
