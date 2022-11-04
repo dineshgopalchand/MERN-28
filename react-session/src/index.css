@@ -1,14 +1,26 @@
-@import url('../node_modules/@fortawesome/fontawesome-free/css/fontawesome.min.css');
-@import url('../node_modules/@fortawesome/fontawesome-free/css/all.min.css');
-@import url('../node_modules/@fortawesome/fontawesome-free/css/brands.min.css');
-@import url('../node_modules/@fortawesome/fontawesome-free/css/regular.min.css');
-@import url('../node_modules/@fortawesome/fontawesome-free/css/solid.min.css');
+@import url("../node_modules/@fortawesome/fontawesome-free/css/fontawesome.min.css");
+@import url("../node_modules/@fortawesome/fontawesome-free/css/all.min.css");
+@import url("../node_modules/@fortawesome/fontawesome-free/css/brands.min.css");
+@import url("../node_modules/@fortawesome/fontawesome-free/css/regular.min.css");
+@import url("../node_modules/@fortawesome/fontawesome-free/css/solid.min.css");
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+.border-2 {
+  border-width: 2px;
+}
+.border-solid {
+  border-style: solid;
+}
+.border-red {
+  border-color: red;
+}
+.border-blue {
+  border-color: blue;
+}

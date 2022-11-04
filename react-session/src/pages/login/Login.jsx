@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Card from "../../UI/card/Card";
 import Input from "../../UI/input/Input";
 import "./Login.css";
 const Login = () => {
@@ -52,33 +53,34 @@ const Login = () => {
   };
   return (
     <div className="form-box">
-      <form onSubmit={loginFormHandler}>
-        <h2>Login Form</h2>
-
-        <Input
-          onChange={formFieldHandler}
-          className={`${formVal.username.error ? "error-field" : ""}`}
-          field={{
-            type: "text",
-            name: "username",
-            value: formVal.username.value,
-            autoComplete: "false",
-          }}
-        />
-        <Input
-          onChange={formFieldHandler}
-          className={`${formVal.password.error ? "error-field" : ""}`}
-          field={{
-            type: "password",
-            name: "password",
-            value: formVal.password.value,
-            autoComplete: "false",
-          }}
-        />
-        <div className="form-group">
-          <button disabled={formVal.formError}>Sign In</button>
-        </div>
-      </form>
+      <Card className="border-2 border-solid border-blue">
+        <form onSubmit={loginFormHandler}>
+          <h2>Login Form</h2>
+          <Input
+            onChange={formFieldHandler}
+            className={`${formVal.username.error ? "error-field" : ""}`}
+            field={{
+              type: "text",
+              name: "username",
+              value: formVal.username.value,
+              autoComplete: "false",
+            }}
+          />
+          <Input
+            onChange={formFieldHandler}
+            className={`${formVal.password.error ? "error-field" : ""}`}
+            field={{
+              type: "password",
+              name: "password",
+              value: formVal.password.value,
+              autoComplete: "false",
+            }}
+          />
+          <div className="form-group">
+            <button disabled={formVal.formError}>Sign In</button>
+          </div>
+        </form>
+      </Card>
     </div>
   );
 };
