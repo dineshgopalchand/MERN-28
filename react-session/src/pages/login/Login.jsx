@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Button from "../../UI/button/Button";
 import Card from "../../UI/card/Card";
 import Input from "../../UI/input/Input";
 import "./Login.css";
@@ -51,6 +52,7 @@ const Login = () => {
     event.preventDefault();
     console.log("form value", formVal.username.value, formVal.password.value);
   };
+
   return (
     <div className="form-box">
       <Card className="border-2 border-solid border-blue">
@@ -77,7 +79,9 @@ const Login = () => {
             }}
           />
           <div className="form-group">
-            <button disabled={formVal.formError}>Sign In</button>
+            <Button disabled={formVal.formError} title="sign-in button">
+              Sign In
+            </Button>
           </div>
         </form>
       </Card>
