@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Button from "../../UI/button/Button";
+import ButtonStyled from "../../UI/button/ButtonStyled";
 import Card from "../../UI/card/Card";
 import Input from "../../UI/input/Input";
 import "./Login.css";
@@ -79,9 +80,12 @@ const Login = () => {
             }}
           />
           <div className="form-group">
-            <Button disabled={formVal.formError} title="sign-in button">
+            {/* <Button disabled={formVal.formError} title="sign-in button">
               Sign In
-            </Button>
+            </Button> */}
+            <ButtonStyled disabled={formVal.formError} title="sign-in button">
+              Sign In
+            </ButtonStyled>
           </div>
         </form>
       </Card>
