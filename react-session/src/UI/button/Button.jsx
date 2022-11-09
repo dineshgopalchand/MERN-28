@@ -1,21 +1,11 @@
 import React, { memo } from "react";
+import classes from "./Button.module.css";
 
 const Button = (props) => {
-  console.log(props);
-  const buttonStyle = {
-    backgroundColor: "blue",
-    color: "#ffffff",
-    borderRadius: "5px",
-  };
   return (
     <>
-      {/* <button style={buttonStyle} {...props}> */}
       <button
-        style={{
-          backgroundColor: "blue",
-          color: "#ffffff",
-          borderRadius: "5px",
-        }}
+        className={`${classes.button} ${props.disabled ? classes.bgGray : ""}`}
         {...props}
       >
         {props.children}

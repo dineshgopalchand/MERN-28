@@ -80,12 +80,12 @@ const Login = () => {
             }}
           />
           <div className="form-group">
-            {/* <Button disabled={formVal.formError} title="sign-in button">
+            <Button disabled={formVal.formError} title="sign-in button">
               Sign In
-            </Button> */}
-            <ButtonStyled disabled={formVal.formError} title="sign-in button">
+            </Button>
+            {/* <ButtonStyled disabled={formVal.formError} title="sign-in button">
               Sign In
-            </ButtonStyled>
+            </ButtonStyled> */}
           </div>
         </form>
       </Card>
