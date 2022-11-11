@@ -1,28 +1,28 @@
 import React from "react";
-import Header from "./UI/header/Header";
-import Login from "./pages/login/Login";
-import TopNotification from "./UI/header/TopNotification";
-import "./App.css";
-import UserList from "./pages/userList/UserList";
-import TodoList from "./pages/todoList/TodoList";
-// js comment
-/* multi line
-comment
-*/
+import { Card } from "react-bootstrap";
+import classes from "./App.module.css";
+import Copyright from "./layout/Copyright";
+import Footer from "./layout/footer/Footer";
+import Header from "./layout/header/Header";
+import TopNotification from "./layout/top-notification/TopNotification";
+import Home from "./pages/home/Home";
+
 function App() {
   return (
     <>
-      <div className="main">
-        <div className="main-header">
-          <TopNotification />
+      <Card className={`${classes.appContainer} rounded-0`}>
+        <Card.Header className="p-0">
+          <TopNotification/>
           <Header />
-        </div>
-        <div className="main-body container bg-light p-1">
-          <Login />
-          {/* <UserList/> */}
-          {/* <TodoList/> */}
-        </div>
-      </div>
+        </Card.Header>
+        <Card.Body className="p-0">
+          <Home/>
+        </Card.Body>
+        <Card.Footer className="text-muted p-0 mt-3">
+          <Footer />
+          <Copyright/>
+        </Card.Footer>
+      </Card>
     </>
   );
 }

@@ -1,0 +1,10 @@
+.contactGroup {
+    display: flex;
+}
+.icon {
+    width: 30px;
+    color: #b24423;
+}
+.mainFooter{
+    font-size: 0.9rem;
+}
