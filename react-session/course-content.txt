@@ -9,12 +9,12 @@
 > Forms - Done
 > Lifting State Up - Done
 > Styling - 
-    >>Styled Component - 
-    >>React css module - 
->Portals  - 
+    >>Styled Component - Done
+    >>React css module - DOne
 >Refs(useRef) - 
->effect -..
->Reducer
->context
+>useEffect -
+>Portals  - 
+>useReducer
+>useContext
 >Router
 >Redux
