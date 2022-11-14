@@ -24,26 +24,35 @@ const todoListInit = [
     completed: true,
   },
 ];
+const TODO_LIST_KEY = "todoList";
 function TodoList() {
-  const [todoList, setTodoList] = useState(todoListInit);
+  const [todoList, setTodoList] = useState();
   const [showNewForm, setShowNewForm] = useState(false);
   const [completedCount, setCompletedCount] = useState(0);
   const [buttonCount, setButtonCount] = useState(0);
-
 
   // it will run every time whenever state or props change(updating)
   useEffect(() => {
     console.log("useEffect without dep");
   });
-
   // it will run only once ( Mounting)
   useEffect(() => {
-    console.log("useEffect with no dep");
+    const todoList = localStorage.getItem(TODO_LIST_KEY);
+    if (todoList) {
+      setTodoList(JSON.parse(todoList));
+    }else{
+      setTodoList([]);
+    }
+
+  
   }, []);
 
   // it will  run whenever dep(todoList) will change
   useEffect(() => {
-    console.log("useEffect with todo list as dep"); 
+    console.log("useEffect with todo list as dep");
+    if (todoList !== undefined) {
+      localStorage.setItem(TODO_LIST_KEY, JSON.stringify(todoList));
+    }
   }, [todoList]);
 
   const updateCompletedCount = (updateTodoList) => {
@@ -84,7 +93,7 @@ function TodoList() {
       return prevTodoList.filter((todo) => todo.id !== id);
     });
   };
-  const todoListFormatted = todoList.map((todo) => {
+  const todoListFormatted = (todoList || []).map((todo) => {
     return (
       <li
         className={todo.completed ? "completed" : "not-completed"}
