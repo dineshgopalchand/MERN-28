@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { useEffect, useState } from "react";
 import NewTodo from "./NewTodo";
 import "./TodoList.css";
 
@@ -27,6 +27,33 @@ const todoListInit = [
 function TodoList() {
   const [todoList, setTodoList] = useState(todoListInit);
   const [showNewForm, setShowNewForm] = useState(false);
+  const [completedCount, setCompletedCount] = useState(0);
+  const [buttonCount, setButtonCount] = useState(0);
+
+
+  // it will run every time whenever state or props change(updating)
+  useEffect(() => {
+    console.log("useEffect without dep");
+  });
+
+  // it will run only once ( Mounting)
+  useEffect(() => {
+    console.log("useEffect with no dep");
+  }, []);
+
+  // it will  run whenever dep(todoList) will change
+  useEffect(() => {
+    console.log("useEffect with todo list as dep"); 
+  }, [todoList]);
+
+  const updateCompletedCount = (updateTodoList) => {
+    const filteredItem = updateTodoList.filter(
+      (todoItem) => todoItem.completed === true
+    );
+    console.log(filteredItem);
+    const count = filteredItem.length;
+    setCompletedCount(count);
+  };
 
   const todoItemChangeStatusHandler = (todo) => {
     console.log("todoItemChangeStatusHandler");
@@ -34,6 +61,7 @@ function TodoList() {
     const todoIndex = todoList.findIndex((todoItem) => todoItem.id === todo.id);
     const updateTodoList = [...todoList];
     updateTodoList.splice(todoIndex, 1, updatedTodo);
+    updateCompletedCount(updateTodoList);
     setTodoList(updateTodoList);
   };
   const formHideShowHandler = () => {
@@ -63,7 +91,6 @@ function TodoList() {
         onClick={() => todoItemChangeStatusHandler(todo)}
         key={todo.id}
       >
-        {" "}
         <button onClick={(event) => DeleteHandler(event, todo.id)}>
           Delete
         </button>
@@ -78,12 +105,20 @@ function TodoList() {
   });
   return (
     <>
-      <h2>
-        To do list{" "}
+      <h2 className="my-5">
+        To do list
         <button onClick={formHideShowHandler}>
           {showNewForm ? "Close Form" : "Add New"}
         </button>
+        <span style={{ fontSize: "0.6em" }}> Completed ({completedCount})</span>
       </h2>
+      <button
+        onClick={() => {
+          setButtonCount((prev) => prev + 1);
+        }}
+      >
+        Click me({buttonCount})
+      </button>
       {/* {showNewForm ? <NewTodo /> : ""} */}
       {showNewForm && (
         <NewTodo

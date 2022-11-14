@@ -6,7 +6,7 @@ import Footer from "./layout/footer/Footer";
 import Header from "./layout/header/Header";
 import TopNotification from "./layout/top-notification/TopNotification";
 import Home from "./pages/home/Home";
-
+import TodoList from './pages/todoList/TodoList'
 function App() {
   return (
     <>
@@ -15,8 +15,9 @@ function App() {
           <TopNotification/>
           <Header />
         </Card.Header>
-        <Card.Body className="p-0">
-          <Home/>
+        <Card.Body className="p-0 ">
+          {/* <Home/> */}
+          <TodoList/>
         </Card.Body>
         <Card.Footer className="text-muted p-0 mt-3">
           <Footer />
