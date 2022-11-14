@@ -29,8 +29,7 @@ function TodoList() {
   const [todoList, setTodoList] = useState();
   const [showNewForm, setShowNewForm] = useState(false);
   const [completedCount, setCompletedCount] = useState(0);
-  const [buttonCount, setButtonCount] = useState(0);
-
+  const [isLogin, setIsLogin] = useState(false);
   // it will run every time whenever state or props change(updating)
   useEffect(() => {
     console.log("useEffect without dep");
@@ -40,11 +39,25 @@ function TodoList() {
     const todoList = localStorage.getItem(TODO_LIST_KEY);
     if (todoList) {
       setTodoList(JSON.parse(todoList));
-    }else{
+    } else {
       setTodoList([]);
     }
+  }, []);
 
-  
+  useEffect(() => {
+    if (isLogin) {
+      localStorage.setItem("isLogin", isLogin);
+    }
+    // return ()=>{
+    //   console.log('unmounting');
+    //   localStorage.removeItem("isLogin");
+    // }
+  }, [isLogin]);
+  useEffect(() => {
+    return () => {
+      console.log("unmounting");
+      localStorage.removeItem("isLogin");
+    };
   }, []);
 
   // it will  run whenever dep(todoList) will change
@@ -123,10 +136,10 @@ function TodoList() {
       </h2>
       <button
         onClick={() => {
-          setButtonCount((prev) => prev + 1);
+          setIsLogin((prev) => !prev);
         }}
       >
-        Click me({buttonCount})
+        {isLogin ? "Logout" : "Login"}
       </button>
       {/* {showNewForm ? <NewTodo /> : ""} */}
       {showNewForm && (
