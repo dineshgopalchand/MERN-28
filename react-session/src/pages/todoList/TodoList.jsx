@@ -24,61 +24,43 @@ const todoListInit = [
     completed: true,
   },
 ];
-const TODO_LIST_KEY = "todoList";
-function TodoList() {
+// const TODO_LIST_KEY = "todoList";
+const TodoList = () => {
   const [todoList, setTodoList] = useState();
   const [showNewForm, setShowNewForm] = useState(false);
   const [completedCount, setCompletedCount] = useState(0);
-  const [isLogin, setIsLogin] = useState(false);
-  // it will run every time whenever state or props change(updating)
-  useEffect(() => {
-    console.log("useEffect without dep");
-  });
-  // it will run only once ( Mounting)
-  useEffect(() => {
-    const todoList = localStorage.getItem(TODO_LIST_KEY);
-    if (todoList) {
-      setTodoList(JSON.parse(todoList));
-    } else {
-      setTodoList([]);
-    }
-  }, []);
 
   useEffect(() => {
-    if (isLogin) {
-      localStorage.setItem("isLogin", isLogin);
-    }
-    // return ()=>{
-    //   console.log('unmounting');
-    //   localStorage.removeItem("isLogin");
+    fetch("http://localhost:3342/todo")
+      .then((res) => res.json())
+      .then((todos) => {
+        setTodoList(todos);
+      });
+
+    // const todoList = localStorage.getItem(TODO_LIST_KEY);
+    // if (todoList) {
+    //   setTodoList(JSON.parse(todoList));
+    // } else {
+    //   setTodoList([]);
     // }
-  }, [isLogin]);
-  useEffect(() => {
-    return () => {
-      console.log("unmounting");
-      localStorage.removeItem("isLogin");
-    };
   }, []);
 
   // it will  run whenever dep(todoList) will change
   useEffect(() => {
-    console.log("useEffect with todo list as dep");
-    if (todoList !== undefined) {
-      localStorage.setItem(TODO_LIST_KEY, JSON.stringify(todoList));
-    }
+    // if (todoList !== undefined) {
+    //   localStorage.setItem(TODO_LIST_KEY, JSON.stringify(todoList));
+    // }
   }, [todoList]);
 
   const updateCompletedCount = (updateTodoList) => {
     const filteredItem = updateTodoList.filter(
       (todoItem) => todoItem.completed === true
     );
-    console.log(filteredItem);
     const count = filteredItem.length;
     setCompletedCount(count);
   };
 
   const todoItemChangeStatusHandler = (todo) => {
-    console.log("todoItemChangeStatusHandler");
     const updatedTodo = { ...todo, completed: !todo.completed };
     const todoIndex = todoList.findIndex((todoItem) => todoItem.id === todo.id);
     const updateTodoList = [...todoList];
@@ -134,13 +116,6 @@ function TodoList() {
         </button>
         <span style={{ fontSize: "0.6em" }}> Completed ({completedCount})</span>
       </h2>
-      <button
-        onClick={() => {
-          setIsLogin((prev) => !prev);
-        }}
-      >
-        {isLogin ? "Logout" : "Login"}
-      </button>
       {/* {showNewForm ? <NewTodo /> : ""} */}
       {showNewForm && (
         <NewTodo
@@ -152,6 +127,6 @@ function TodoList() {
       <ul className="todo-list">{todoListFormatted}</ul>
     </>
   );
-}
+};
 
 export default TodoList;

@@ -3,7 +3,7 @@ import { useState } from "react";
 import "./NewTodo.css";
 
 const NewTodo = (props) => {
-  console.log(props);
+  // console.log(props);
   const newTodoHandler = props.onNewToDo;
   const hideForm=props.onHideForm;
   const [todoVal, setTodoVal] = useState("");
