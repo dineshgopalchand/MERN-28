@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 import NewTodo from "./NewTodo";
 import "./TodoList.css";
@@ -31,11 +32,31 @@ const TodoList = () => {
   const [completedCount, setCompletedCount] = useState(0);
 
   useEffect(() => {
-    fetch("http://localhost:3342/todo")
-      .then((res) => res.json())
-      .then((todos) => {
-        setTodoList(todos);
+    // fetch("http://localhost:3342/todo")
+    //   .then((res) => res.json())
+    //   .then((todos) => {
+    //     setTodoList(todos);
+    //   });
+
+    axios
+      .get("http://localhost:3342/todo")
+      .then((res) => {
+        setTodoList(res.data);
+      })
+      .catch((err) => {
+        console.log("err", err);
       });
+    // axios({
+    //   method: "get",
+    //   url: "http://localhost:3342/todo",
+
+    // })
+    //   .then((res) => {
+    //     setTodoList(res.data);
+    //   })
+    //   .catch((err) => {
+    //     console.log("err", err);
+    //   });
 
     // const todoList = localStorage.getItem(TODO_LIST_KEY);
     // if (todoList) {
