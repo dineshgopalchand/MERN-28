@@ -26,53 +26,60 @@ const todoListInit = [
   },
 ];
 // const TODO_LIST_KEY = "todoList";
+const todoAPIUrl = "http://localhost:3342/todo";
 const TodoList = () => {
   const [todoList, setTodoList] = useState();
   const [showNewForm, setShowNewForm] = useState(false);
   const [completedCount, setCompletedCount] = useState(0);
 
   useEffect(() => {
-    // fetch("http://localhost:3342/todo")
-    //   .then((res) => res.json())
-    //   .then((todos) => {
-    //     setTodoList(todos);
-    //   });
-
+    getTodoList();
+  }, []);
+  const getTodoList = () => {
     axios
-      .get("http://localhost:3342/todo")
+      .get(todoAPIUrl)
       .then((res) => {
         setTodoList(res.data);
       })
       .catch((err) => {
         console.log("err", err);
       });
-    // axios({
-    //   method: "get",
-    //   url: "http://localhost:3342/todo",
+  };
 
-    // })
-    //   .then((res) => {
-    //     setTodoList(res.data);
-    //   })
-    //   .catch((err) => {
-    //     console.log("err", err);
-    //   });
+  const createNewTodo = (newTodo) => {
+    axios
+      .post(todoAPIUrl, newTodo)
+      .then((res) => {
+        console.log(res);
+        // setTodoList(res.data);
+      })
+      .catch((err) => {
+        console.log("err", err);
+      });
+  };
 
-    // const todoList = localStorage.getItem(TODO_LIST_KEY);
-    // if (todoList) {
-    //   setTodoList(JSON.parse(todoList));
-    // } else {
-    //   setTodoList([]);
-    // }
-  }, []);
+  const deleteTodoItem = (id) => {
+    axios
+      .delete(todoAPIUrl + "/" + id)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log("err", err);
+      });
+  };
 
-  // it will  run whenever dep(todoList) will change
-  useEffect(() => {
-    // if (todoList !== undefined) {
-    //   localStorage.setItem(TODO_LIST_KEY, JSON.stringify(todoList));
-    // }
-  }, [todoList]);
-
+  const updateTodoItem = (updatedItem) => {
+    axios
+      .put(`${todoAPIUrl}/${updatedItem.id}`, updatedItem)
+      .then((res) => {
+        console.log(res);
+        // setTodoList(res.data);
+      })
+      .catch((err) => {
+        console.log("err", err);
+      });
+  };
   const updateCompletedCount = (updateTodoList) => {
     const filteredItem = updateTodoList.filter(
       (todoItem) => todoItem.completed === true
@@ -83,6 +90,7 @@ const TodoList = () => {
 
   const todoItemChangeStatusHandler = (todo) => {
     const updatedTodo = { ...todo, completed: !todo.completed };
+    updateTodoItem(updatedTodo);
     const todoIndex = todoList.findIndex((todoItem) => todoItem.id === todo.id);
     const updateTodoList = [...todoList];
     updateTodoList.splice(todoIndex, 1, updatedTodo);
@@ -93,6 +101,7 @@ const TodoList = () => {
     setShowNewForm(!showNewForm);
   };
   const addNewTodoHandler = (newTodo) => {
+    createNewTodo(newTodo);
     setTodoList((prevTodoList) => {
       return [...prevTodoList, newTodo];
     });
@@ -100,12 +109,8 @@ const TodoList = () => {
   const DeleteHandler = (event, id) => {
     event.stopPropagation();
     console.log("delete handler", id);
-
+    deleteTodoItem(id);
     setTodoList((prevTodoList) => {
-      // const updateList=[...prevTodoList];
-      // const removeItemIndex=updateList.findIndex(item=>item.id===id);
-      // updateList.splice(removeItemIndex,1);
-      // return updateList;
       return prevTodoList.filter((todo) => todo.id !== id);
     });
   };
