@@ -6,6 +6,7 @@ import { useState } from "react";
 import { useRef } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import contactus from "../../assests/images/contact-us.jpg";
+import classes from './Contact.module.css';
 
 const Contact = () => {
   const [error, setError] = useState("");
@@ -99,7 +100,7 @@ const Contact = () => {
             </form>
           </Col>
           <Col className="text-center">
-            <h2>Contact us</h2>
+            <h2 className={classes.contactHeader}>Contact us</h2>
             <div className="details">
               <img src={contactus} alt="Contact us" />
             </div>

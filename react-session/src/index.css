@@ -4,6 +4,12 @@
 @import url("../node_modules/@fortawesome/fontawesome-free/css/regular.min.css");
 @import url("../node_modules/@fortawesome/fontawesome-free/css/solid.min.css");
 @import url("../node_modules/bootstrap/dist/css/bootstrap.min.css");
+
+:root {
+  --feature-color: #343490;
+  --primary-text-color: #232323;
+  --error-text-color: #df3490;
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
