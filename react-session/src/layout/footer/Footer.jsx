@@ -20,20 +20,20 @@ const Footer = () => {
         </Col>
         <Col>
           <h3>Easy Access</h3>
-          <ul className="list-group list-group-flush">
-            <li className="list-group-item">
+          <ul>
+            <li>
               <a href="#">Home</a>
             </li>
-            <li className="list-group-item">
+            <li>
               <a href="#">About us</a>
             </li>
-            <li className="list-group-item">
+            <li>
               <a href="#">Student Review</a>
             </li>
-            <li className="list-group-item">
+            <li>
               <a href="#">Placement</a>
             </li>
-            <li className="list-group-item">
+            <li>
               <a href="#">Contact Us</a>
             </li>
           </ul>

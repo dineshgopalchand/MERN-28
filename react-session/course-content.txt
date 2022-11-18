@@ -11,8 +11,9 @@
 > Styling - 
     >>Styled Component - Done
     >>React css module - DOne
->Refs(useRef) - 
->useEffect -
+>Refs(useRef) - Done
+>useEffect - Done
+>Fetch and Axios - Done
 >Portals  - 
 >useReducer
 >useContext
