@@ -1,0 +1,43 @@
+.product-list__layout {
+    display: flex;
+    flex-direction: row;
+}
+.product-list__sidebar {
+    border: 1px solid hsl(0, 0%, 25%);
+    padding: 10px;
+}
+.product-list__container {
+    flex: 1 1 auto;
+    border: 1px solid hsl(0, 0%, 25%);
+    padding: 20px;
+}
+.product-filter{ 
+    width: 125px;
+}
+
+.product-card {
+    border: 1px solid hsl(240, 50%, 50%);
+    padding: 5px;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+.product-image {
+    height: 150px;
+    max-width: 100%;
+    overflow: hidden;
+}
+.product-name {
+    font-size: 1.2em;
+}
+.discounted-price {
+    color: hsl(120, 50%, 50%);
+}
+.main-price {
+    color: hsl(0, 50%, 50%);
+}
+.filter-category{
+    font-size:1.1em;
+}

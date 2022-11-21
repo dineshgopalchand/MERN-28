@@ -7,6 +7,7 @@ import Header from "./layout/header/Header";
 import TopNotification from "./layout/top-notification/TopNotification";
 import Contact from "./pages/contact/Contact";
 import Home from "./pages/home/Home";
+import ProductList from "./pages/productlist/ProductList";
 import TodoList from "./pages/todoList/TodoList";
 function App() {
   return (
@@ -19,7 +20,8 @@ function App() {
         <Card.Body className="p-0 ">
           {/* <Home/> */}
           {/* <TodoList/> */}
-          <Contact />
+          {/* <Contact /> */}
+          <ProductList />
         </Card.Body>
         <Card.Footer className="text-muted p-0 mt-3">
           <Footer />
