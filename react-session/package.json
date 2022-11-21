@@ -13,6 +13,7 @@
     "react-bootstrap": "^2.6.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.6.0",
+    "react-responsive-pagination": "^1.8.1",
     "react-scripts": "5.0.1",
     "styled-components": "^5.3.6",
     "uuidv4": "^6.2.13",
