@@ -15,7 +15,7 @@
 >useEffect - Done
 >Fetch and Axios - Done
 >Portals  - 
->useReducer
+>useReducer- done
 >useContext
 >Router
 >Redux
