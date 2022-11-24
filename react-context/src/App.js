@@ -1,32 +1,40 @@
-import React, { useState } from 'react';
+import React, { useReducer, useState } from 'react';
 import './App.css';
 import Header from './Header';
 import MainContainer from './MainContainer';
 const NotificationContext = React.createContext([]);
 
+export const Notification_ACTION = {
+  add: 'add-notification',
+  update: 'update-notification'
+}
+const notificationReducer = (state, action) => {
+  switch (action.type) {
+    case Notification_ACTION.add:
+      return [...state, action.payload];
 
-function App() {
-  const [notificationList, setNotificationList] = useState([]);
-  const addNotification = (newNotification) => {
-    const newNotificationObj = {
-      id: Date.now(),
-      title: newNotification + Math.round(Math.random() * 10),
-      seen: false
-    }
-    setNotificationList(prev => [...prev, newNotificationObj]);
-  }
-  const updateNotification = (notification) => {
-    console.log(notification);
-    const updatedNotification = { ...notification, seen: true };
-    const getNotificationIndex = notificationList.findIndex(item => item.id === notification.id);
-    setNotificationList(prevListState => {
-      const list=[...prevListState];
+    case Notification_ACTION.update:
+      const updatedNotification = { ...action.payload, seen: true };
+      const getNotificationIndex = state.findIndex(item => item.id === updatedNotification.id);
+      const list = [...state];
       list.splice(getNotificationIndex, 1, updatedNotification);
       return list;
-    })
+
+    default:
+      return state;
   }
+
+}
+
+function App() {
+  const [notificationList, notificationDispatch] = useReducer(notificationReducer, []);
+
   return (
-    <NotificationContext.Provider value={{ list: notificationList, addNewNotification: addNotification, updateNotification }}>
+    <NotificationContext.Provider value={
+      {
+        list: notificationList,
+        notificationDispatch
+      }}>
       <div className="App bordered">
         App component
         <Header />

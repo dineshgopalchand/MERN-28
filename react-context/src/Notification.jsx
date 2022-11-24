@@ -1,18 +1,25 @@
 import React from "react";
-import { NotificationContext } from "./App";
+import { NotificationContext, Notification_ACTION } from "./App";
 import NotificationList from "./NotificationList";
 
 const Notification = () => {
   return (
     <NotificationContext.Consumer>
       {(notificationCtx) => {
-        const addNewNotification = notificationCtx.addNewNotification;
+        const notificationDispatch = notificationCtx.notificationDispatch;
         return (
           <div className="bordered">
             Notification
             <button
               onClick={() => {
-                addNewNotification("Notification");
+                notificationDispatch({
+                  type: Notification_ACTION.add,
+                  payload: {
+                    id: Date.now(),
+                    title: "notication" + Math.round(Math.random() * 10),
+                    seen: false,
+                  },
+                });
               }}
             >
               Add
