@@ -15,8 +15,18 @@ function App() {
     }
     setNotificationList(prev => [...prev, newNotificationObj]);
   }
+  const updateNotification = (notification) => {
+    console.log(notification);
+    const updatedNotification = { ...notification, seen: true };
+    const getNotificationIndex = notificationList.findIndex(item => item.id === notification.id);
+    setNotificationList(prevListState => {
+      const list=[...prevListState];
+      list.splice(getNotificationIndex, 1, updatedNotification);
+      return list;
+    })
+  }
   return (
-    <NotificationContext.Provider value={{ list: notificationList, addNewNotification: addNotification }}>
+    <NotificationContext.Provider value={{ list: notificationList, addNewNotification: addNotification, updateNotification }}>
       <div className="App bordered">
         App component
         <Header />

@@ -7,12 +7,13 @@ const NotificationList = () => {
       {(notificationCtx) => {
         // console.log(notificationCtx);
         const notificationList = notificationCtx.list;
+        const updateNotification = notificationCtx.updateNotification;
         return (
           <div className="bordered">
             {notificationCtx.list.length > 0 ? (
               <ul>
                 {notificationList.map((item) => {
-                  return <li key={item.id}>{item.title}</li>;
+                  return <li key={item.id} className={`notification-list ${!item.seen && 'bold'} `} onClick={()=>updateNotification(item)}>{item.title}</li>;
                 })}
               </ul>
             ) : (

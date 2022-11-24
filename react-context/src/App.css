@@ -1,4 +1,11 @@
 .bordered {
   border: 2px solid gray;
-  margin: 5px;
+  margin: 20px;
+}
+
+.bold{
+  font-weight: bold;
+}
+.notification-list{
+  cursor: pointer;
 }
