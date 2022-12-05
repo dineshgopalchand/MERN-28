@@ -1,5 +1,8 @@
 import React, { useContext } from "react";
-import { NotificationContext, Notification_ACTION } from "./App";
+import {
+  NotificationContext,
+  Notification_ACTION,
+} from "./NotificationProvider";
 
 const NotificationList = () => {
   const { list: notificationList, notificationDispatch } =

@@ -1,19 +1,15 @@
-import React from "react";
-import { NotificationContext } from "./App";
+import React, { useContext } from "react";
+import { NotificationContext } from "./NotificationProvider";
 
 const Header = () => {
+  const nCtx = useContext(NotificationContext);
   return (
-    <NotificationContext.Consumer>
-      {(nCtx) => {
-        // console.log(nCtx);
-        return (
-          <div className="bordered">
-            Header
-            <span style={{ color: "red" }}>Notification Count : {nCtx.list.length}</span>
-          </div>
-        );
-      }}
-    </NotificationContext.Consumer>
+    <div className="bordered">
+      Header
+      <span style={{ color: "red" }}>
+        Notification Count : {nCtx.list.length}
+      </span>
+    </div>
   );
 };
 
