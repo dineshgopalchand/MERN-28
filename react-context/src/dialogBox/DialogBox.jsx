@@ -1,5 +1,7 @@
 import React from "react";
+import ReactDOM from "react-dom";
 import classes from "./DialogBox.module.css";
+
 
 const DialogBox = ({ children, show,closeDialog }) => {
   function closeDialogBox() {
@@ -7,7 +9,7 @@ const DialogBox = ({ children, show,closeDialog }) => {
     closeDialog();
   }
 
-  return (
+  return ReactDOM.createPortal(
     <>
       {show && (
         <div
@@ -27,7 +29,7 @@ const DialogBox = ({ children, show,closeDialog }) => {
           </div>
         </div>
       )}
-    </>
+    </>,document.getElementById('dialogroot')
   );
 };
 

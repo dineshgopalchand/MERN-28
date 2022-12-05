@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
+import DialogBox from "./dialogBox/DialogBox";
 
 import NotificationList from "./NotificationList";
 import { NotificationContext, Notification_ACTION } from "./NotificationProvider";
 
 const Notification = () => {
-  // const notificationCtx = useContext(NotificationContext);
-  // const notificationDispatch = notificationCtx.notificationDispatch;
+  const [show, setShow] = useState(true);
   const { notificationDispatch } = useContext(NotificationContext);
   const addNotification = () => {
     notificationDispatch({
@@ -18,10 +18,14 @@ const Notification = () => {
     });
   };
   return (
-    <div className="bordered">
+    <div className="bordered" style={{position:'relative'}}>
       Notification
       <button onClick={addNotification}>Add</button>
       <NotificationList />
+      <DialogBox show={show} closeDialog={()=>setShow(false)}>
+        <h2>Some title</h2>
+        <p>some details</p>
+      </DialogBox>
     </div>
   );
 };
