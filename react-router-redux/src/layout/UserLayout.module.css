@@ -1,0 +1,13 @@
+.userBoard {
+  display: flex;
+  flex-direction: row;
+}
+.sidebar {
+  background: rgb(255, 214, 214);
+  width: 200px;
+  height: 500px;
+}
+.mainContent {
+  background: rgb(155, 165, 255);
+  flex: 1 1 auto;
+}
