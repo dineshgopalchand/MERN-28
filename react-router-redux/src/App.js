@@ -15,8 +15,11 @@ import Dashboard from "./pages/account/Dashboard";
 import Profile from "./pages/account/Profile";
 import Setting from "./pages/account/Setting";
 import AuthRequired from "./context/AuthRequired";
-import ProductList from "./pages/ProductList";
+// import ProductList from "./pages/ProductList";
+import React, { Suspense } from "react";
 import Product from "./pages/Product";
+const ProductList = React.lazy(() => import("./pages/ProductList"));
+
 function App() {
   return (
     <BrowserRouter>
@@ -28,8 +31,18 @@ function App() {
             <Route path="about" element={<About />} />
             <Route path="article" element={<Blog />} />
             <Route path="services" element={<Services />} />
-            <Route path="products" element={<ProductList />} />
-            <Route path="product/:category/:id/:productname" element={<Product />} />
+            <Route
+              path="products"
+              element={
+                <Suspense fallback="product list page loading... ">
+                  <ProductList />
+                </Suspense>
+              }
+            />
+            <Route
+              path="product/:category/:id/:productname"
+              element={<Product />}
+            />
             <Route path="login" element={<Signin />} />
             <Route path="create-account" element={<Signup />} />
             <Route
