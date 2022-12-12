@@ -1,11 +1,16 @@
-.topContainer{
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+.topContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
-.main-container{
-    flex:1 1 auto;
+.main-container {
+  flex: 1 1 auto;
 }
-.activeMenu{
-    font-weight: bold;
+.activeMenu {
+  font-weight: bold;
+}
+.counter-button {
+  padding: 5px 30px;
+  background: radial-gradient(white, gray);
+  border-radius: 9px;
 }

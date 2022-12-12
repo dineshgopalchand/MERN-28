@@ -18,6 +18,7 @@ import AuthRequired from "./context/AuthRequired";
 // import ProductList from "./pages/ProductList";
 import React, { Suspense } from "react";
 import Product from "./pages/Product";
+import Counter from "./pages/Counter";
 const ProductList = React.lazy(() => import("./pages/ProductList"));
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
             <Route path="about" element={<About />} />
             <Route path="article" element={<Blog />} />
             <Route path="services" element={<Services />} />
+            <Route path="counter" element={<Counter />} />
             <Route
               path="products"
               element={

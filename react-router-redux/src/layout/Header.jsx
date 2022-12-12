@@ -39,6 +39,10 @@ const Header = () => {
       content: "Article",
       link: "/article",
     },
+    {
+      content: "Counter",
+      link: "/counter",
+    },
   ];
   return (
     <Navbar expand="lg" bg="dark" variant="dark">
