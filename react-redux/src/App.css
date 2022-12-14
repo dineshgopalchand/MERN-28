@@ -1,0 +1,5 @@
+.counter-button {
+    padding: 5px 30px;
+    background: radial-gradient(white, rgb(160, 195, 236));
+    border-radius: 9px;
+}

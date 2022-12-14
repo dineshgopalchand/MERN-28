@@ -19,11 +19,11 @@ function App() {
           <Header />
         </Card.Header>
         <Card.Body className="p-0 ">
-          {/* <Home/> */}
+          <Home/>
           {/* <TodoList /> */}
           {/* <Contact /> */}
           {/* <ProductList /> */}
-          <PostListSample/>
+          {/* <PostListSample/> */}
         </Card.Body>
         <Card.Footer className="text-muted p-0 mt-3">
           <Footer />
