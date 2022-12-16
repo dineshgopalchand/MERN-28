@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { decrement, increment, incrementByValue, reset } from "./actions";
+import { decrement, increment, incrementAsync, incrementByValue, reset } from "./actions";
 
 const Counter = () => {
   const counter = useSelector((state) => state.counter);
@@ -42,6 +42,9 @@ const Counter = () => {
       <br />
       <button className="counter-button" onClick={() => dispatch(reset())}>
         Reset
+      </button>
+      <button className="counter-button" onClick={() => dispatch(incrementAsync())}>
+        Delayed - increase
       </button>
     </div>
   );
