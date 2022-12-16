@@ -9,7 +9,9 @@ const Counter = () => {
   return (
     <div style={{ marginTop: "20px" }}>
       <h2>Counter</h2>
-      <button className="counter-button" onClick={() => dispatch(increment())}>
+      <button className="counter-button" onClick={() => dispatch({
+        type: "INCREMENT",
+    })}>
         +
       </button>
       <input
