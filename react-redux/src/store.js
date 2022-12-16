@@ -2,6 +2,7 @@ import { createStore } from "redux";
 import appReducers from "./reducers/index";
 //The created store
 const store = createStore(
-    appReducers
+    appReducers,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 export default store;
