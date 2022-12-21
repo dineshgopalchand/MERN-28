@@ -14,8 +14,8 @@ const ProductList = () => {
     // fetch("https://dummyjson.com/products")
     //   .then((res) => res.json())
     //   .then((json) => setProductDetails(json.products));
-
-    const debouncedSave = debounce(() => dispatch(fetchProductList()), 1000);
+    dispatch(fetchProductList())
+    // const debouncedSave = debounce(() => dispatch(fetchProductList()), 1000);
   }, []);
   return (
     <>

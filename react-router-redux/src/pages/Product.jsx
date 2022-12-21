@@ -1,21 +1,25 @@
 import React, { Suspense, useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-// import ProductSlider from "../features/product/productSlider/ProductSlider";
+import { fetchProduct } from "../slices/productSlice";
 const ProductSlider = React.lazy(() =>
   import("../features/product/productSlider/ProductSlider")
 );
 
 const Product = () => {
+  const dispatch = useDispatch();
+  const productDetails = useSelector((state) => {
+    console.log(state);
+    return state.products.product || {};
+  });
   const [sliderImages, setSliderImages] = useState([]);
 
-  const [productDetails, setProductDetails] = useState({});
   const { id } = useParams();
   useEffect(() => {
-    fetch("https://dummyjson.com/products/" + id)
-      .then((res) => res.json())
-      .then((pd) => setProductDetails(pd));
+    dispatch(fetchProduct(id));
   }, [id]);
+
   useEffect(() => {
     if (productDetails?.images) {
       setSliderImages(
