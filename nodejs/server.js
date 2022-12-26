@@ -1,11 +1,17 @@
 const http = require("http");
+const fs = require("fs");
 const PORT = 8000;
 const app = http.createServer((request, response) => {
   const { url, method } = request;
   console.log({ url, method });
   response.setHeader("Content-type", "text/html");
+  response.setHeader("status", 201);
   if (url == "/") {
-    response.end("<h2>Home page</h2>");
+    const homePageContent=fs.readFile('./public/html/index.html',(err,data)=>{
+        response.end(data);
+    });
+
+    
   } else if (url == "/contact") {
     response.end("<h2>Contact page</h2>");
   } else if (url == "/about") {
