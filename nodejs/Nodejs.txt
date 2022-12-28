@@ -1,0 +1,35 @@
+Module 1: Understanding Node environment
+		-Extending JavaScript
+		-V8
+		-The Process Object
+Module 2: Understanding Asynchronous Event Driven Programming
+		-Broadcasting Events
+		-Listening for Events
+		-Timers
+		-Understanding the Event Loop
+		-Callbacks and errors
+Module 3: Streaming Data Across Node And clients
+		-Exporting Streams
+		-Creating and HTTP Server
+		-The Request objects
+		-Working with Headers
+		-Handling Post Data
+Module 4: Access the File System
+		-Directories & iterating overs files and folders
+		-Reading from File
+		-Writing to a File
+Module 5: Using Express
+		-Installing Express and Making it Easier to Build Web Server
+		-Routes
+		-Static File and Middleware
+		-JSON
+Module 6: Databases
+		-Relational Database and SQL
+		-Node & MYSQL
+		-NoSQL and Documents
+		-MongoDB and Mongoose
+		-CRUD operation using MongoDB
+Module 7: Working with MySQL
+		-CRUD Operation using MYSQL
+Module 8: Connecting Node with ui
+		-Using API in UI
