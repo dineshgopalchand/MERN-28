@@ -1,4 +1,5 @@
 const fs= require('fs');
+const path=require('path');
 // // read file =================================================>>>
 // //Async operation
 // // fs.readFile('./data/test.txt', 'utf8',(err,data)=>{
@@ -18,10 +19,14 @@ const fs= require('fs');
 
 // append file
 //async
-fs.appendFile('./data/test.txt','some data '+Date.now()+'\n',(err)=>{
-    console.log(err);
-})
+// fs.appendFile('./data/test.txt','some data '+Date.now()+'\n',(err)=>{
+//     console.log(err);
+// })
 //sync
 console.log(__dirname);
-console.log(__filename);
-fs.appendFileSync('./data/test1.txt','some data '+Date.now()+'\n');
+// console.log(__filename);
+// fs.appendFileSync('./src/test/text/dummy.txt','some data '+Date.now()+'\n');
+console.log(__dirname+'/text/dummy.txt')
+const filePath=path.join(__dirname,'..','text','dummy.txt');
+console.log(filePath);
+// fs.appendFileSync(filePath,'some data '+Date.now()+'\n');
