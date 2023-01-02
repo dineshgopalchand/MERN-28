@@ -13,9 +13,21 @@ const app = http.createServer((request, response) => {
     });
 
   } else if (pathname == "/contact") {
+    let body='';
     if (method == 'POST') {
-      console.log('post methode content');
-      response.end("<h2>post method</h2>");
+      request.on('data',chunk=>{
+        body+=chunk.toString();
+      })
+      // const body=request.body;
+      request.on('end',()=>{
+        console.log(body);
+        console.log('post methode content');
+        response.end(`
+        <h2>post method</h2>
+        Submitted Value=${body}
+        `);
+      })
+     
     } else {
       console.log('GET methode content',searchParams);
       const fname=searchParams.get('fname');
