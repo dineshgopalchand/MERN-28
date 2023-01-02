@@ -1,4 +1,4 @@
-Module 1: Understanding Node environment
+Module 1: Understanding Node environment - Done
 		-Extending JavaScript
 		-V8
 		-The Process Object
@@ -8,13 +8,13 @@ Module 2: Understanding Asynchronous Event Driven Programming
 		-Timers
 		-Understanding the Event Loop
 		-Callbacks and errors
-Module 3: Streaming Data Across Node And clients
+Module 3: Streaming Data Across Node And clients 
 		-Exporting Streams
 		-Creating and HTTP Server
 		-The Request objects
 		-Working with Headers
 		-Handling Post Data
-Module 4: Access the File System
+Module 4: Access the File System - Done
 		-Directories & iterating overs files and folders
 		-Reading from File
 		-Writing to a File
