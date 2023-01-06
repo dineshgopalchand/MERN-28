@@ -12,37 +12,46 @@ const app = http.createServer((request, response) => {
       response.end(data);
     });
 
-  } else if (pathname == "/contact") {
-    let body='';
-    if (method == 'POST') {
-      request.on('data',chunk=>{
-        body+=chunk.toString();
-      })
-      // const body=request.body;
-      request.on('end',()=>{
-        console.log(body);
-        console.log('post methode content');
-        response.end(`
+  } else
+    if (pathname == "/user-info") {
+      response.setHeader("Content-type", "application/json");
+      const data = {
+        name: 'dinesh',
+        location: 'BLR'
+      };
+      response.end(JSON.stringify(data));
+
+    } else if (pathname == "/contact") {
+      let body = '';
+      if (method == 'POST') {
+        request.on('data', chunk => {
+          body += chunk.toString();
+        })
+        // const body=request.body;
+        request.on('end', () => {
+          console.log(body);
+          console.log('post methode content');
+          response.end(`
         <h2>post method</h2>
         Submitted Value=${body}
         `);
-      })
-     
+        })
+
+      } else {
+        console.log('GET methode content', searchParams);
+        const fname = searchParams.get('fname');
+        console.log(fname)
+        fs.readFile('./public/html/contact.html', (err, data) => {
+          response.end(data);
+        });
+      }
+    } else if (pathname == "/about") {
+      response.end("<h2>About page</h2>");
+    } else if (pathname == "/blog") {
+      response.end("<h2>Blog page</h2>");
     } else {
-      console.log('GET methode content',searchParams);
-      const fname=searchParams.get('fname');
-      console.log(fname)
-      fs.readFile('./public/html/contact.html', (err, data) => {
-        response.end(data);
-      });
+      response.end("<h2>404</h2>");
     }
-  } else if (pathname == "/about") {
-    response.end("<h2>About page</h2>");
-  } else if (pathname == "/blog") {
-    response.end("<h2>Blog page</h2>");
-  } else {
-    response.end("<h2>404</h2>");
-  }
 });
 app.listen(PORT, () => {
   console.log(`Server started : ${HOST}`);
