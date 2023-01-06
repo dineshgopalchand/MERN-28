@@ -1,8 +1,12 @@
 const http = require("http");
 const fs = require("fs");
+
+const {logEvent} =require('./event');
+
 const PORT = 8000;
 const HOST = `http://localhost:${PORT}`;
 const app = http.createServer((request, response) => {
+  logEvent.emit('logPage',request.url);
   const { url, method } = request;
   const { pathname, searchParams } = new URL(HOST + url);
   response.setHeader("Content-type", "text/html");
