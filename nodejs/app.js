@@ -25,16 +25,6 @@ app.use(bodyParser.json());
 // }));
 app.use(morgan(':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length]'));
 
-// custom middleware
-app.use((req, res, next) => {
-    console.log('logging', req.url);
-    res.setHeader('requested-by', 'dinesh');
-    res.cookie('name', 'diosjdfj')
-    if (req.url == '/') {
-        req.somedata = 'MERN class';
-    }
-    next();
-})
 
 app.get('/', (req, res) => {
     console.log(req.somedata);
@@ -48,14 +38,23 @@ app.get('/post/', (req, res) => {
 });
 
 app.get('/product/list', (req, res) => {
-    console.log(req.somedata);
-
+    const { p: page, c: count, q: search } = (req.query);
     let rawdata = fs.readFileSync('./mock-data/product-list.json');
     const productList = JSON.parse(rawdata);
-    res.send(productList);
+    let filteredProductList = productList.products;
+    if (search) {
+        filteredProductList = filteredProductList
+            .filter(product => product.title.toLowerCase().indexOf(search.toLowerCase()) != -1)
+    }
+    if (page && count) {
+        const start = (page - 1) * count;
+        const end = start + count;
+        filteredProductList = filteredProductList.slice(start, end)
+    }
+    res.send(filteredProductList);
 });
 app.get('/product/:productid', (req, res) => {
-    console.log(req.somedata);
+
     const { productid } = req.params;
 
     let rawdata = fs.readFileSync('./mock-data/product-list.json');
